@@ -1,14 +1,14 @@
+const { categories } = require('../utils')
 const router = require('express').Router()
 
-router.get('/categories', function (req, res) {
-    try {
-        const { body } = req
-        console.log(body)
+router.get('/', function(req, res){
+    try{
+        // const { body } = req
 
-        res.send('categories successful')
-    } catch (e) {
-        console.log(e)
-        res.send('categories error')
+        res.status(200).json(categories)
+    }catch(e){
+        console.log(e.message)
+        res.status(400).send(e.message)
     }
 })
 

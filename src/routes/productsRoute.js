@@ -1,14 +1,14 @@
+const { products } = require('../utils')
 const router = require('express').Router()
 
-router.get('/products', function (req, res) {
-    try {
-        const { body } = req
-        console.log(body)
+router.get('/', function(req, res){
+    try{
+        // const { body } = req
 
-        res.send('products successful')
-    } catch (e) {
-        console.log(e)
-        res.send('products error')
+        res.status(200).json(products)
+    }catch(e){
+        console.log(e.message)
+        res.status(400).send(e.message)
     }
 })
 
