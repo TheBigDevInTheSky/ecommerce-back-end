@@ -7,10 +7,7 @@ export const productsRouter = Router()
 productsRouter.post('/', function(req :Request, res: Response) {
 	try {
 		const { body } = req
-		checkBody(body)
-
-		console.log(body.product);
-		
+		checkBody(body)		
 
 		res.status(200).json(products)
 	} catch (e) {
