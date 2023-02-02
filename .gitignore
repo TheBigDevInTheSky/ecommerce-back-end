@@ -149,6 +149,8 @@ Thumbs.db
 
 # Ignore built ts files
 dist/**/*
+src/**.js
+src/**.js.map
 
 # ignore yarn.lock
 yarn.lock
