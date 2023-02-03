@@ -1,14 +1,16 @@
+import cors from 'cors'
 import { config } from 'dotenv'
 import express from 'express'
-import cors from 'cors'
 import { categoriesRouter, productsRouter } from './routes/index.js'
+import connectDB from './utils/connectDB.js'
 
 // Configures dotenv
 config()
-const server = express()
+// Connect DB
+const DB = await connectDB()
 
-// TODO: Add to env file
-const PORT = 3000
+const server = express()
+const PORT = process.env.PORT || 3001
 
 server.use(express.urlencoded({ extended: true }))
 server.use(express.json())
