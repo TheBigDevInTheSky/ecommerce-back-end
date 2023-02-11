@@ -13,7 +13,7 @@ server.use(express.urlencoded({ extended: true }))
 server.use(express.json())
 server.use(cors())
 
-server.get('/', function (_req, res) {
+server.get('/', function (req, res) {
 	res.send('Hello World')
 })
 
