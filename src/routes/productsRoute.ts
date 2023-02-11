@@ -21,6 +21,7 @@ productsRouter.post('/', async function (req: Request, res: Response) {
 	try {
 		const product = await Product.create(req.body.product)
 		await product.save()
+
 		await dbConnection.disconnect()
 		res.status(200).json(product)
 	} catch (e) {
@@ -34,9 +35,12 @@ productsRouter.post('/', async function (req: Request, res: Response) {
 productsRouter.put('/', async function (req: Request, res: Response) {
 	const dbConnection = await connectDB()
 	try {
-		const product = await Product.findById({ _id: req.body.id })
+		const product = await Product.findById(req.body.id)
+		if (product.amount === 0) return res.status(200).send()
+
 		product.amount += req.body.amount
 		await product.save()
+
 		await dbConnection.disconnect()
 		res.status(200).send()
 	} catch (e) {
@@ -50,6 +54,7 @@ productsRouter.delete('/', async function (req: Request, res: Response) {
 	try {
 		const product = await Product.findOneAndDelete({ _id: req.body.id })
 		await product.save()
+
 		await dbConnection.disconnect()
 		res.status(200).json(product)
 	} catch (e) {
