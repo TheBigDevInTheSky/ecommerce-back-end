@@ -3,7 +3,7 @@ import { model, Schema } from 'mongoose'
 const Product = new Schema({
 	name: { type: String, required: true },
 	category: { type: String, required: true },
-	amount: { type: Number, required: true },
+	amount: { type: Number, default: 0 },
 	price: { type: Number, required: true },
 	rating: Number,
 	ratingsCount: Number,
