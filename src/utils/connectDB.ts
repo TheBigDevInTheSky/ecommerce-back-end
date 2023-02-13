@@ -1,6 +1,4 @@
-import * as dotenv from 'dotenv'
 import mongoose from 'mongoose'
-dotenv.config()
 
 export default async function connectDB() {
 	try {
