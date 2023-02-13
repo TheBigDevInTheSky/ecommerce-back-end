@@ -1,10 +1,10 @@
 import cors from 'cors'
-import { config } from 'dotenv'
+import * as dotenv from 'dotenv'
 import express from 'express'
 import { categoriesRouter, productsRouter } from './routes/index.js'
 
 // Configures dotenv
-config()
+dotenv.config()
 
 const server = express()
 const PORT = process.env.PORT || 3001
