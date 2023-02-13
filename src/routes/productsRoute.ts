@@ -52,11 +52,10 @@ productsRouter.put('/', async function (req: Request, res: Response) {
 productsRouter.delete('/', async function (req: Request, res: Response) {
 	const dbConnection = await connectDB()
 	try {
-		const product = await Product.findOneAndDelete({ _id: req.body.id })
-		await product.save()
+		await Product.findByIdAndDelete(req.body.id)
 
 		await dbConnection.disconnect()
-		res.status(200).json(product)
+		res.status(200).send()
 	} catch (e) {
 		await dbConnection.disconnect()
 		res.status(400).send(e.message)
