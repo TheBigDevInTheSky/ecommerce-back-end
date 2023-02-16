@@ -5,27 +5,22 @@ import connectDB from '../utils/connectDB.js'
 export const productsRouter = Router()
 
 productsRouter.get('/', async function (req: Request, res: Response) {
-	const dbConnection = await connectDB()
 	try {
+		await connectDB()
 		const products = await Product.find()
-		await dbConnection.disconnect()
 		res.json(products)
 	} catch (e) {
-		await dbConnection.disconnect()
 		res.status(400).send(e.message)
 	}
 })
 
 productsRouter.post('/', async function (req: Request, res: Response) {
-	const dbConnection = await connectDB()
 	try {
+		await connectDB()
 		const product = await Product.create(req.body.product)
 		await product.save()
-
-		await dbConnection.disconnect()
 		res.status(200).json(product)
 	} catch (e) {
-		await dbConnection.disconnect()
 		res.status(400).send(e.message)
 	}
 })
@@ -33,31 +28,26 @@ productsRouter.post('/', async function (req: Request, res: Response) {
 // Find product by id, then updates the amount.
 // Takes both positive and negative numbers to adjust the amount.
 productsRouter.put('/', async function (req: Request, res: Response) {
-	const dbConnection = await connectDB()
 	try {
+		await connectDB()
 		const product = await Product.findById(req.body.id)
 		if (product.amount === 0) return res.status(200).send()
 
 		product.amount += req.body.amount
 		await product.save()
 
-		await dbConnection.disconnect()
 		res.status(200).send()
 	} catch (e) {
-		await dbConnection.disconnect()
 		res.status(400).send(e.message)
 	}
 })
 
 productsRouter.delete('/', async function (req: Request, res: Response) {
-	const dbConnection = await connectDB()
 	try {
+		await connectDB()
 		await Product.findByIdAndDelete(req.body.id)
-
-		await dbConnection.disconnect()
 		res.status(200).send()
 	} catch (e) {
-		await dbConnection.disconnect()
 		res.status(400).send(e.message)
 	}
 })
