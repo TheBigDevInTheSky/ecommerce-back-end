@@ -1,0 +1,260 @@
+{
+	"_type": "export",
+	"__export_format": 4,
+	"__export_date": "2023-02-17T09:48:26.800Z",
+	"__export_source": "insomnia.desktop.app:v2022.7.5",
+	"resources": [
+		{
+			"_id": "req_3184ebc26d4746de82c82daf10c53739",
+			"parentId": "fld_22a1ee4a25884e899a6a09d3e51a7a2d",
+			"modified": 1676290173497,
+			"created": 1675325609649,
+			"url": "http://localhost:3000/categories",
+			"name": "GetCategories",
+			"description": "",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1675325609649,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "fld_22a1ee4a25884e899a6a09d3e51a7a2d",
+			"parentId": "wrk_24e1421a7b9a46619bdf7688e1d00888",
+			"modified": 1676290166769,
+			"created": 1676290166769,
+			"name": "Categories",
+			"description": "",
+			"environment": {},
+			"environmentPropertyOrder": null,
+			"metaSortKey": -1676290166769,
+			"_type": "request_group"
+		},
+		{
+			"_id": "wrk_24e1421a7b9a46619bdf7688e1d00888",
+			"parentId": null,
+			"modified": 1675209770618,
+			"created": 1675209770618,
+			"name": "E-COMMERCE",
+			"description": "",
+			"scope": "collection",
+			"_type": "workspace"
+		},
+		{
+			"_id": "req_d6a239abd0ca406e99f3c7cdd6c5f63e",
+			"parentId": "fld_22a1ee4a25884e899a6a09d3e51a7a2d",
+			"modified": 1676290297399,
+			"created": 1676290181851,
+			"url": "http://localhost:3000/categories",
+			"name": "CreateCategory",
+			"description": "",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"category\":{\n\t\t\"name\":\"TestCategory\",\n\t\t\"description\": \"Test description.\"\n\t}\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{ "name": "Content-Type", "value": "application/json" }
+			],
+			"authentication": {},
+			"metaSortKey": -1675325609599,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_462c4606edb544bba32bd4e005bbd8b3",
+			"parentId": "fld_22a1ee4a25884e899a6a09d3e51a7a2d",
+			"modified": 1676290896339,
+			"created": 1676290365552,
+			"url": "http://localhost:3000/categories",
+			"name": "RemoveCategory",
+			"description": "",
+			"method": "DELETE",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"id\": \"63ea2b0ffd276c449b06c493\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{ "name": "Content-Type", "value": "application/json" }
+			],
+			"authentication": {},
+			"metaSortKey": -1675325609549,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_265dcfd2c92e4dc98897aef630fbddef",
+			"parentId": "fld_f8a3abc9f23f4ef08dad7d104909bac7",
+			"modified": 1676290143069,
+			"created": 1675386378273,
+			"url": "http://localhost:3000/products",
+			"name": "GetProducts",
+			"description": "",
+			"method": "GET",
+			"body": {},
+			"parameters": [],
+			"headers": [],
+			"authentication": {},
+			"metaSortKey": -1676233617559.875,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "fld_f8a3abc9f23f4ef08dad7d104909bac7",
+			"parentId": "wrk_24e1421a7b9a46619bdf7688e1d00888",
+			"modified": 1676290114894,
+			"created": 1676290100179,
+			"name": "Product",
+			"description": "",
+			"environment": {},
+			"environmentPropertyOrder": null,
+			"metaSortKey": -1676290100179,
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_68df5d557d634be5b99841feaced5a99",
+			"parentId": "fld_f8a3abc9f23f4ef08dad7d104909bac7",
+			"modified": 1676290152224,
+			"created": 1675209962694,
+			"url": "http://localhost:3000/products",
+			"name": "AddProduct",
+			"description": "",
+			"method": "POST",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"product\": {\n\t\t\"name\": \"Tesser8832\",\n\t\t\"category\": \"Fitness\",\n\t\t\"price\": 45.50,\n\t\t\"description\": \"Shit is bussin bussin for real\"\n\t}\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{ "name": "Content-Type", "value": "application/json" }
+			],
+			"authentication": {},
+			"metaSortKey": -1676233617547.375,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_2f497eb3aa274c788e350879fae55ee0",
+			"parentId": "fld_f8a3abc9f23f4ef08dad7d104909bac7",
+			"modified": 1676290147868,
+			"created": 1675732137964,
+			"url": "http://localhost:3000/products",
+			"name": "UpdateProductAmount",
+			"description": "",
+			"method": "PUT",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"id\":\"63e78bc7756e226400259a34\",\n\t\"amount\": -2\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{ "name": "Content-Type", "value": "application/json" }
+			],
+			"authentication": {},
+			"metaSortKey": -1676233617534.875,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "req_61a47bdabdfa4942a7102cb96660d08c",
+			"parentId": "fld_f8a3abc9f23f4ef08dad7d104909bac7",
+			"modified": 1676290145572,
+			"created": 1675731797540,
+			"url": "http://localhost:3000/products",
+			"name": "DeleteProduct",
+			"description": "",
+			"method": "DELETE",
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"id\": \"63e78d7bbc113b900cb61784\"\n}"
+			},
+			"parameters": [],
+			"headers": [
+				{ "name": "Content-Type", "value": "application/json" }
+			],
+			"authentication": {},
+			"metaSortKey": -1676233617509.875,
+			"isPrivate": false,
+			"settingStoreCookies": true,
+			"settingSendCookies": true,
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingFollowRedirects": "global",
+			"_type": "request"
+		},
+		{
+			"_id": "env_9dc3960da0425c4982f107c1768a01d4d6d25e06",
+			"parentId": "wrk_24e1421a7b9a46619bdf7688e1d00888",
+			"modified": 1675209770620,
+			"created": 1675209770620,
+			"name": "Base Environment",
+			"data": {},
+			"dataPropertyOrder": null,
+			"color": null,
+			"isPrivate": false,
+			"metaSortKey": 1675209770620,
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_9dc3960da0425c4982f107c1768a01d4d6d25e06",
+			"parentId": "wrk_24e1421a7b9a46619bdf7688e1d00888",
+			"modified": 1675209770621,
+			"created": 1675209770621,
+			"name": "Default Jar",
+			"cookies": [],
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "spc_935317dddae64cf8a5828185c6325154",
+			"parentId": "wrk_24e1421a7b9a46619bdf7688e1d00888",
+			"modified": 1675209770618,
+			"created": 1675209770618,
+			"fileName": "E-COMMERCE",
+			"contents": "",
+			"contentType": "yaml",
+			"_type": "api_spec"
+		}
+	]
+}
