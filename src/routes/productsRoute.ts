@@ -30,7 +30,10 @@ productsRouter.post('/', async function (req: Request, res: Response) {
 productsRouter.put('/', async function (req: Request, res: Response) {
 	try {
 		await connectDB()
+
 		const product = await Product.findById(req.body.id)
+		if (product === null)
+			return await res.status(400).send('Unable to find product')
 		if (product.amount === 0) return res.status(200).send()
 
 		product.amount += req.body.amount

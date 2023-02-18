@@ -6,13 +6,14 @@ const OPTIONS = {
 	socketTimeoutMS: 15000, // Close sockets after 15 seconds of inactivity, raise this if we end up with long running opperations.
 }
 
+const { MONGO_URI } = process.env
+
 export default async function connectDB() {
 	try {
-		await mongoose
-			.set({ strictQuery: false })
-			.connect(process.env.MONGO_URI, OPTIONS)
+		if (MONGO_URI === undefined)
+			throw Error('Missing uri for database connection')
+		await mongoose.set({ strictQuery: false }).connect(MONGO_URI, OPTIONS)
 	} catch (e) {
 		console.error(e.message)
-		throw Error(e.message)
 	}
 }
