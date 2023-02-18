@@ -5,7 +5,10 @@
 		"target": "es2017",
 		"sourceMap": true,
 		"outDir": "dist",
-		"allowJs": true
+		"allowJs": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true
 	},
-	"include": ["src/**/*"]
+	"include": ["src/**/*"],
+	"exclude": ["src/**/*.test"]
 }
