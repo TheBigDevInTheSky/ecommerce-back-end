@@ -4,6 +4,7 @@ import connectDB from '../utils/connectDB.js'
 
 export const categoriesRouter = Router()
 
+// Gets all categories and returns them as JSON
 categoriesRouter.get('/', async function (req: Request, res: Response) {
 	try {
 		await connectDB()
@@ -14,10 +15,11 @@ categoriesRouter.get('/', async function (req: Request, res: Response) {
 	}
 })
 
+// Expects request body to have default/required to create document
 categoriesRouter.post('/', async function (req: Request, res: Response) {
 	try {
 		await connectDB()
-		const category = await Categories.create(req.body.category)
+		const category = await Categories.create(req.body)
 		await category.save()
 		res.status(200).send()
 	} catch (e) {

@@ -4,6 +4,7 @@ import connectDB from '../utils/connectDB.js'
 
 export const productsRouter = Router()
 
+// Gets documents and returns them as JSON
 productsRouter.get('/', async function (req: Request, res: Response) {
 	try {
 		await connectDB()
@@ -14,10 +15,12 @@ productsRouter.get('/', async function (req: Request, res: Response) {
 	}
 })
 
+// Expects request body to have default/required data to create a document.
+// Sends back created document as JSON.
 productsRouter.post('/', async function (req: Request, res: Response) {
 	try {
 		await connectDB()
-		const product = await Product.create(req.body.product)
+		const product = await Product.create(req.body)
 		await product.save()
 		res.status(200).json(product)
 	} catch (e) {
@@ -25,18 +28,22 @@ productsRouter.post('/', async function (req: Request, res: Response) {
 	}
 })
 
-// Find product by id, then updates the amount.
-// Takes both positive and negative numbers to adjust the amount.
+// Expects an id and update(Object)
+// Uses id to find a document
+// Uses update(Object) to update document
 productsRouter.put('/', async function (req: Request, res: Response) {
 	try {
 		await connectDB()
 
-		const product = await Product.findById(req.body.id)
-		if (product === null)
-			return await res.status(400).send('Unable to find product')
-		if (product.amount === 0) return res.status(200).send()
+		const { id, update }: { id: String; update: Object } = req.body
 
-		product.amount += req.body.amount
+		const product = await Product.findOneAndUpdate(
+			{ id }, // Find one by id
+			update // Object with the properties we want to update
+		)
+		if (product === null)
+			return res.status(400).send('Unable to find product')
+
 		await product.save()
 
 		res.status(200).send()
