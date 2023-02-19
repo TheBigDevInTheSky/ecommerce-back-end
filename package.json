@@ -2,14 +2,14 @@
 	"name": "ecommerce-back-end",
 	"version": "1.0.0",
 	"description": "",
-	"main": "src/server.ts",
+	"main": "dist/server.ts",
 	"type": "module",
 	"scripts": {
 		"test": "jest --coverage",
 		"dev": "npm run build & nodemon dist/server",
 		"prebuild": "npm run clean",
 		"build": "tsc -w",
-		"clean": "rimraf src/**/*.js src/**/*.js.map"
+		"clean": "rimraf src/**/*.js src/**/*.js.map dist"
 	},
 	"repository": {
 		"type": "git",
