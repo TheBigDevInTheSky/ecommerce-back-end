@@ -1,5 +1,10 @@
 import mongoose from 'mongoose'
 
+/**
+ * Mongoose/MongoDB connection options
+ *
+ * @type {Object}
+ */
 const OPTIONS = {
 	maxPoolSize: 10, // Maintain up to 10 socket connections
 	serverSelectionTimeoutMS: 5000, // Keep trying to send operations for 5 seconds
@@ -8,6 +13,12 @@ const OPTIONS = {
 
 const { MONGO_URI } = process.env
 
+/**
+ * Creates mongo database connection.
+ *
+ * @async
+ * @function connectDB
+ */
 export default async function connectDB() {
 	try {
 		if (MONGO_URI === undefined)
