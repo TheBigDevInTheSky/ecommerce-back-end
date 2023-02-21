@@ -55,12 +55,31 @@ export const productController = {
 // Takes in the put routes, req.body.update.
 // Performs proper updates for each property on specified document
 // @ts-ignore
-async function putHelper(update, product, res: Response) {
+async function putHelper(update, product: any, res: Response) {
 	// Turns update object into an iterable array
 	Object.entries(update).forEach(function ([key, value], _index) {
-		console.log(key)
-		console.log(value)
+		updateProperty(key, product, value)
 	})
-	// await product.save()
+	await product.save()
 	return res.status(200).send()
+}
+
+function updateProperty(propKey: any, product: any, value: any) {
+	switch (propKey) {
+		case 'name':
+		case 'category':
+		case 'price':
+		case 'rating':
+		case 'thumbnails':
+		case 'images':
+		case 'description':
+			product[propKey] = value
+		case 'amount':
+		case 'ratingsCount':
+			product[propKey] += value
+		default: {
+			// Should we throw an error here if propKey is out of switch's range.
+			return
+		}
+	}
 }
