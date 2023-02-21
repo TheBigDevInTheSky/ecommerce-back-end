@@ -28,6 +28,7 @@ export const productController = {
 	// Expects an id and update(Object)
 	// Uses id to find a document
 	// Uses update(Object) to update document
+	// Responds with updated document values if successful
 	put: async function (req: Request, res: Response) {
 		try {
 			await connectDB()
@@ -54,6 +55,7 @@ export const productController = {
 
 // Takes in the put routes, req.body.update.
 // Performs proper updates for each property on specified document
+// Responds with documents updated value as JSON
 // @ts-ignore
 async function putHelper(update, product: any, res: Response) {
 	// Turns update object into an iterable array
