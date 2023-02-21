@@ -60,8 +60,8 @@ async function putHelper(update, product: any, res: Response) {
 	Object.entries(update).forEach(function ([key, value], _index) {
 		updateProperty(key, product, value)
 	})
-	await product.save()
-	return res.status(200).send()
+	const updatedProduct = await product.save()
+	return res.status(200).json(updatedProduct)
 }
 
 function updateProperty(propKey: any, product: any, value: any) {
