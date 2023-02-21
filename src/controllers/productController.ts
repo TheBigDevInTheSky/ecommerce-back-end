@@ -76,7 +76,10 @@ function updateProperty(propKey: any, product: any, value: any) {
 			product[propKey] = value
 		case 'amount':
 		case 'ratingsCount':
-			product[propKey] += value
+			const newValue = (product[propKey] += value)
+			newValue <= 0
+				? (product[propKey] = 0)
+				: (product[propKey] = newValue)
 		default: {
 			// Should we throw an error here if propKey is out of switch's range.
 			return
