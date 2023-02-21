@@ -1,4 +1,2 @@
 export { categoriesRouter } from './categoriesRoute.js'
-export { productsRouter } from './productsRoute.js'
-
-
+export { productRouter } from './productRoute.js'

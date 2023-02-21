@@ -1,7 +1,7 @@
 import cors from 'cors'
 import * as dotenv from 'dotenv'
 import express from 'express'
-import { categoriesRouter, productsRouter } from './routes/index.js'
+import { categoriesRouter, productRouter } from './routes/index.js'
 
 // Configures dotenv
 dotenv.config()
@@ -17,7 +17,9 @@ server.get('/', function (req, res) {
 	res.send('Hello World')
 })
 
-server.use('/products', productsRouter)
+server.use('/product', productRouter)
+// TODO:
+// Update files/folder and requests removing the s from /categories
 server.use('/categories', categoriesRouter)
 
 server.listen(PORT, function () {
